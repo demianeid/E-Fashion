@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { useAuth } from "@/lib/auth-context"
 import { Eye, EyeOff } from "lucide-react"
 
-export default function RegisterPage() {
+function RegisterContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const redirectTo = searchParams.get("redirect") || "/"
@@ -197,5 +197,13 @@ export default function RegisterPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <RegisterContent />
+    </Suspense>
   )
 }
