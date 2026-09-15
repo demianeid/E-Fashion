@@ -99,7 +99,7 @@ export default function ProductDetailPage() {
                 ))}
               </div>
               {/* Main Image */}
-              <div className="flex-1 aspect-[4/5] relative rounded-lg overflow-hidden bg-accent/20">
+              <div className="flex-1 aspect-[4/5] relative rounded-lg overflow-hidden bg-accent/20" suppressHydrationWarning>
                 <Image
                   src={product.images[selectedImage] || "/placeholder.svg"}
                   alt={product.name}

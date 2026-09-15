@@ -13,7 +13,7 @@ interface ProductCardProps {
 export function ProductCard({ product, showRating = false }: ProductCardProps) {
   return (
     <Link href={`/products/${product.id}`} className="group block">
-      <div className="relative aspect-[3/4] overflow-hidden bg-accent/30 rounded-lg mb-3">
+      <div className="relative aspect-[3/4] overflow-hidden bg-accent/30 rounded-lg mb-3" suppressHydrationWarning>
         <Image
           src={product.images[0] || "/placeholder.svg"}
           alt={product.name}
